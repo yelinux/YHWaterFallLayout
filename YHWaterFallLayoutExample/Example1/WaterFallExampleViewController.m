@@ -76,7 +76,7 @@
             CGFloat colNum = 3;
             //计算每列有多宽
             CGFloat cellWidth = (self.collectionView.bounds.size.width - self.layout.sectionInset.left - self.layout.sectionInset.right - (self.layout.minimumInteritemSpacing * (colNum - 1))) / colNum;
-            self.mesView.frame = CGRectMake(0, 0, cellWidth, CGFLOAT_MAX);
+            self.mesView.frame = CGRectMake(0, 0, cellWidth, 100000);
             //根据内容，计算高度
             [modelList enumerateObjectsUsingBlock:^(WaterFallExampleData  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 CGSize size = [self.mesView setData:obj];

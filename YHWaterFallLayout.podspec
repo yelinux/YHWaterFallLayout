@@ -5,7 +5,6 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/yelinux/YHWaterFallLayout"
   spec.license      = "MIT"
   spec.author       = { "chenyehong" => "ye_linux@126.com" }
-  s.platform        = :ios
   spec.source       = { :git => "https://github.com/yelinux/YHWaterFallLayout.git", :tag => "1.0" }
   spec.source_files  = "YHWaterFallLayout/*.{h,m}"
   spec.requires_arc = true

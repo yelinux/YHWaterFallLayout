@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
   spec.author             = { "chenyehong" => "ye_linux@126.com" }
 
-  spec.source       = { :git => "https://github.com/yelinux/YHWaterFallLayout.git", :tag => spec.version.to_s }
+  spec.source       = { :git => "https://github.com/yelinux/YHWaterFallLayout.git", :tag => spec.version }
 
   spec.source_files  = "YHWaterFallLayout/*.{h,m}"
   spec.requires_arc = true

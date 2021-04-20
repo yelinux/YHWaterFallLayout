@@ -1,13 +1,17 @@
-Pod::Spec.new do |spec|
-  spec.name         = "YHWaterFallLayout"
-  spec.version      = "1.0"
-  spec.summary      = "简易使用瀑布流."
-  spec.homepage     = "https://github.com/yelinux/YHWaterFallLayout"
-  spec.license      = "MIT"
-  spec.author       = { "chenyehong" => "ye_linux@126.com" }
-  spec.source       = { :git => "https://github.com/yelinux/YHWaterFallLayout.git", :tag => "1.0" }
-  spec.source_files  = "YHWaterFallLayout/*.{h,m}"
-  spec.requires_arc = true
-  spec.platform = :ios, '9.0'
-
-end
+Pod::Spec.new do |s|
+    s.name         = 'YHWaterFallLayout'
+    s.version      = '1.0.0'
+    s.summary      = 'Easy using waterfall'
+    s.description  = <<-DESC
+        Easy for using waterfall
+                   DESC
+    s.homepage     = 'https://github.com/yelinux/YHWaterFallLayout'
+    s.license      = { :type => "MIT", :file => 'LICENSE' }
+    s.authors      = {'chenyehong' => 'ye_linux@126.com'}
+    s.platform     = :ios, '9.0'
+    s.source       = {:git => 'https://github.com/yelinux/YHWaterFallLayout.git', :tag => s.version}
+    s.source_files = 'YHWaterFallLayout/*.{h,m}'
+    s.requires_arc = true
+    s.ios.frameworks = 'UIKit'
+    s.ios.deployment_target = '9.0'
+  end

@@ -31,12 +31,12 @@ pod 'YHWaterFallLayout', :git => 'https://github.com/yelinux/YHWaterFallLayout.g
 
 2. Create an instance object of collectionViewLayout:`YHWaterFallLayout`
 ```objective-c
-    YHWaterFallLayout *layout = [[YHWaterFallLayout alloc] init];
-    layout.minimumLineSpacing = 5;
-    layout.minimumInteritemSpacing = 5;
-    layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
-    layout.delegate = self;
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+YHWaterFallLayout *layout = [[YHWaterFallLayout alloc] init];
+layout.minimumLineSpacing = 5;
+layout.minimumInteritemSpacing = 5;
+layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
+layout.delegate = self;
+UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
 ```
 
 3. Configure the delegate: `YHWaterFallLayoutDelegate`                                          

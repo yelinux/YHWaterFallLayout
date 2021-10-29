@@ -12,6 +12,8 @@
 #import "WaterFallExampleData.h"
 #import "WaterFallExampleItemView.h"
 
+#define ColNum 3 //默认3列
+
 @interface WaterFallExampleViewController ()<YHWaterFallLayoutDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) YHWaterFallLayout *layout;
@@ -52,6 +54,10 @@
     WaterFallExampleItemView *mesView = [[WaterFallExampleItemView alloc] init];
     [mesView setHidden:YES];
     [self.view addSubview:mesView];
+    mesView.translatesAutoresizingMaskIntoConstraints = NO;
+    //计算每列有多宽
+    CGFloat cellWidth = (collectionView.bounds.size.width - layout.sectionInset.left - layout.sectionInset.right - (layout.minimumInteritemSpacing * (ColNum - 1))) / ColNum;
+    [mesView addConstraint:[mesView.widthAnchor constraintEqualToConstant:(int)cellWidth]];
     _mesView = mesView;
 }
 
@@ -72,15 +78,9 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             //核心代码，根据内容和固定宽度，计算每一个item的高度。计算高度的方式随意，但要准确
-            //默认3列
-            CGFloat colNum = 3;
-            //计算每列有多宽
-            CGFloat cellWidth = (self.collectionView.bounds.size.width - self.layout.sectionInset.left - self.layout.sectionInset.right - (self.layout.minimumInteritemSpacing * (colNum - 1))) / colNum;
-            self.mesView.frame = CGRectMake(0, 0, cellWidth, 100000);
             //根据内容，计算高度
             [modelList enumerateObjectsUsingBlock:^(WaterFallExampleData  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                CGSize size = [self.mesView setData:obj];
-                obj.size = CGSizeMake(cellWidth, size.height);
+                obj.size = [self.mesView setData:obj];
             }];
             self.modelList = modelList;
             [self.collectionView reloadData];

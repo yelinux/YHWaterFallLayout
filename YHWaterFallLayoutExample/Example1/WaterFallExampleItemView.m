@@ -15,15 +15,25 @@
 
 @implementation WaterFallExampleItemView
 
+-(instancetype)init{
+    if (self = [super init]) {
+        [self addSubview:self.lb];
+        self.lb.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:@[
+            [self.lb.leftAnchor constraintEqualToAnchor:self.leftAnchor constant:0],
+            [self.lb.topAnchor constraintEqualToAnchor:self.topAnchor constant:0],
+            [self.lb.rightAnchor constraintEqualToAnchor:self.rightAnchor constant:0],
+            [self.lb.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:0]
+        ]];
+    }
+    return self;
+}
+
 -(CGSize)setData: (WaterFallExampleData*)data{
     self.lb.text = data.text;
     self.lb.backgroundColor = data.color;
-    return [self.lb sizeThatFits:CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
-}
-
--(void)layoutSubviews{
-    [super layoutSubviews];
-    self.lb.frame = self.bounds;
+    [self.lb setPreferredMaxLayoutWidth:self.lb.bounds.size.width];
+    return [self systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
 }
 
 -(UILabel *)lb{
@@ -31,7 +41,6 @@
         _lb = [[UILabel alloc] init];
         _lb.textColor = UIColor.blackColor;
         _lb.numberOfLines = 0;
-        [self addSubview:_lb];
     }
     return _lb;
 }

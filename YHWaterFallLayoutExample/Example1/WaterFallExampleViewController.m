@@ -52,8 +52,8 @@
     [self.view addSubview:collectionView];
     _collectionView = collectionView;
     WaterFallExampleItemView *mesView = [[WaterFallExampleItemView alloc] init];
-    [mesView setHidden:YES];
-    [self.view addSubview:mesView];
+//    [mesView setHidden:YES];
+//    [self.view addSubview:mesView];
     mesView.translatesAutoresizingMaskIntoConstraints = NO;
     //计算每列有多宽
     CGFloat cellWidth = (collectionView.bounds.size.width - layout.sectionInset.left - layout.sectionInset.right - (layout.minimumInteritemSpacing * (ColNum - 1))) / ColNum;
